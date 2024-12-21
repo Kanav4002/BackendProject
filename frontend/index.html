@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Registration Form</title>
+</head>
+<body>
+  <form autocomplete="off" class="form">
+    <p class="title">Register</p>
+    <p class="message">Signup now</p>
+    <div class="form-group">
+      <label>
+        <input type="text" required>
+        <span>Firstname</span>
+      </label>
+      <label>
+        <input type="text" required>
+        <span>Lastname</span>
+      </label>
+    </div>
+    <label>
+      <input type="text" required>
+      <span>Email</span>
+    </label>
+    <label>
+      <input type="password" id="password" required>
+      <span>Password</span>
+      <span class="icon" id="togglePassword">
+        <i class="far fa-eye-slash"></i>
+      </span>
+    </label>
+    <label>
+      <input type="password"
+      id="passwordConfirm" required>
+      <span>Confirm password</span>
+      <span class="icon"
+      id="togglePasswordConfirm">
+        <i class="far fa-eye-slash"></i>
+      </span>
+    </label>
+    <button class="submit">Submit</button>
+    <p class="signin">
+      Already have an account ?
+      <a href="#">Signin</a>
+    </p>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
