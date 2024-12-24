@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.pixelstalk.net/wp-content/uploads/images5/Cool-Green-and-Black-Wallpaper-Free-Download.jpg');
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        table {            
+            width: 80%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #e8e8e8;
+        }
+
+        .student-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+
+        .student-info label {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .student-info input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .student-info button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .student-info button:hover {
+            background-color: #45a049;
+        }
+
+        .header{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 1rem 2rem;
+            position: relative;
+            font-family: 'Poppings', sans-serif;
+            font-size: 24px;
+        }
+    
+        .header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #studentTable{
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="header">
+        <a href="/index">Form</a>
+        <a href="/allstudent">User List</a>
+        <a href="http://localhost:3000/" target="_blank">User Data</a>
+    </nav>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        fetch("http://localhost:3000")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+
+                const table = document.getElementById('studentTable');
+                const tableBody = table.getElementsByTagName('tbody')[0];
+
+                data.forEach(person => {
+                    const row = document.createElement('tr');
+                    const firstNameCell = document.createElement('td');
+                    const lastNameCell = document.createElement('td');
+                    const emailCell = document.createElement('td');
+
+                    firstNameCell.textContent = person.firstName;
+                    lastNameCell.textContent = person.lastName;
+                    emailCell.textContent = person.email;
+
+                    row.appendChild(firstNameCell);
+                    row.appendChild(lastNameCell);
+                    row.appendChild(emailCell);
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch((error) => {
+                console.error('Error fetching student data:', error);
+            });
+
+        // Submit button functionality
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+
+            if (firstName && lastName && email) {
+                alert(`Student Added: ${firstName} ${lastName} - ${email}`);
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+    </script>
+</body>
+
+</html>

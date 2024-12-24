@@ -20,5 +20,3 @@ togglePassword.addEventListener('click', () => {
 togglePasswordConfirm.addEventListener('click', () => {
   togglePassowrdVisibility(passwordConfirm, togglePasswordConfirm);
 });
-
-

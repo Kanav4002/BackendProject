@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Registration Form</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+      min-height: 100vh;
+      background-image: url('https://www.pixelstalk.net/wp-content/uploads/images5/Cool-Green-and-Black-Wallpaper-Free-Download.jpg');
+      background-size: cover;
+    }
+
+    .form{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 350px;
+      padding: 20px;
+      border-radius: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba( 26, 229, 33, 0.4 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 12px );
+      -webkit-backdrop-filter: blur( 12px );
+      border-radius: 10px;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+      }
+
+    .title{
+      font-size: 24px;
+      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      position: relative;
+      text-align: center;
+
+    }
+
+    .message,
+    .signin {
+      color: #ffffff;
+      font-size: 14px;
+      text-align: center;
+
+    }
+
+    .signin a{
+      color: #ffffff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .signin a:hover{
+      color: #ff0000;
+    }
+
+    .form-group {
+      display: flex;
+      width: 100%;
+      gap: 6px;
+    }
+
+    .form label{
+      position: relative;
+    }
+
+    .form label input {
+      width: 100%;
+      padding: 10px 10px 20px 10px;
+      outline: none;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .form label input + span {
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      color: #24323d;
+      font: 0.9rem;
+      cursor: text;
+      transition: 0.3s ease;
+    }
+
+    .form label input:placeholder-shown + span {
+      top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .form label input:focus + span,
+    .form label input:valid + span {
+      top: 30px;
+      font-size: 0.7em;
+      font-weight: 600;
+    }
+
+    .form label input:valid + span {
+      color: #1ab188;
+    }
+
+    .form label .icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: #24323d;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .submit {
+      border: none;
+      outline: none;
+      background-color: #0d604a;
+      padding: 10px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      transform: 0.3 ease;
+      cursor: pointer;
+    }
+
+    .submit:hover {
+      background: #138567;
+      transition: 0.3s;
+    }
+
+    .submit:active {
+      opacity: 0.8;
+    }
+
+    .header{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #333;
+      padding: 1rem 2rem;
+      position: relative;
+      font-family: 'Poppings', sans-serif;
+      font-size: 24px;
+    }
+    
+    .header a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+    <nav class="header">
+      <a href="/index">Form</a>
+      <a href="/allstudent">User List</a>
+      <a href="http://localhost:3000/" target="_blank">User Data</a>
+    </nav>
+
+  <form action="/index" id="registrationForm" autocomplete="off" class="form" method="POST">
+    <p class="title">Register</p>
+    <p class="message">Signup now</p>
+    <div class="form-group">
+      <label>
+        <input type="text" id="firstName" name="firstName" required>
+        <span>Firstname</span>
+      </label>
+      <label>
+        <input type="text" id="lastName" name="lastName" required>
+        <span>Lastname</span>
+      </label>
+    </div>
+    <label>
+      <input type="email" id="email" name="email" required>
+      <span>Email</span>
+    </label>
+    <button type="submit" class="submit">Submit</button>
+    <p class="signin">
+      Already have an account ?
+      <a href="#">Signin</a>
+    </p>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
